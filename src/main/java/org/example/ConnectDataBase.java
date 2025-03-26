@@ -4,16 +4,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectDataBase {
-    public static void main(String[] args){
-        String url = "jdbc:postgresql://localhost:5432/To-Do List";
-        String user = "postgres";
-        String password = "9330670020";
 
-        try(Connection conn = DriverManager.getConnection(url, user, password)){
-            System.out.println("Connected to PostgreSQL succesfully!");
-        } catch(SQLException e){
-            System.out.println("Connection failed: " + e.getMessage());
+        private static final String url = "jdbc:postgresql://localhost:5432/To-Do List";
+        private static final String user = "postgres";
+        private static final String password = "9330670020";
+
+        public static Connection getConnection() throws SQLException{
+            return DriverManager.getConnection(url,user, password);
         }
-    }
-
 }
